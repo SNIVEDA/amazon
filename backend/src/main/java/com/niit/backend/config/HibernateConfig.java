@@ -11,12 +11,18 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.backend.dto.Address;
+import com.niit.backend.dto.Cart;
+import com.niit.backend.dto.CartLine;
 import com.niit.backend.dto.Category;
+import com.niit.backend.dto.Product;
+import com.niit.backend.dto.User;
 
 @Configuration
 @ComponentScan(basePackages = { "com.niit.backend.dto" })
-
+@EnableTransactionManagement
 public class HibernateConfig {
 
 	// Change the below based on the DBMS you choose
@@ -53,6 +59,12 @@ public class HibernateConfig {
 		builder.addProperties(getHibernateProperties());
 		builder.scanPackages("com.niit.backend.dto");
 		builder.addAnnotatedClasses(Category.class);
+		builder.addAnnotatedClasses(Address.class);
+		builder.addAnnotatedClasses(Product.class);
+		builder.addAnnotatedClasses(Cart.class);
+		builder.addAnnotatedClasses(CartLine.class);
+		builder.addAnnotatedClasses(User.class);
+		
 		return builder.buildSessionFactory();
 	}
 

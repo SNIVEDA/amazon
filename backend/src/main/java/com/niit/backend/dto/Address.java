@@ -7,12 +7,14 @@ import java.util.List;
 import java.util.ListIterator;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+@Entity
 public class Address implements Serializable, List<Address> {
 
 	/**

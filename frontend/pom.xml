@@ -15,6 +15,7 @@
 		<junit.version>3.8.1</junit.version>
 		<spring.version>4.3.6.RELEASE</spring.version>
 		<spring.security.version>4.2.2.RELEASE</spring.security.version>
+		<slf4jVersion>1.6.1</slf4jVersion>
 	</properties>
 
 	<dependencies>
@@ -26,6 +27,14 @@
 			<artifactId>backend</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+
+		<!-- SLF4j API -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4jVersion}</version>
+		</dependency>
+
 
 		<!--javaee-api -->
 		<dependency>

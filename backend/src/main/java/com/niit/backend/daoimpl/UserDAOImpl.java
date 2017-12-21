@@ -5,7 +5,7 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
+import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.backend.dao.UserDAO;
 import com.niit.backend.dto.Address;
@@ -13,6 +13,7 @@ import com.niit.backend.dto.Cart;
 import com.niit.backend.dto.User;
 
 @Repository("userDAO")
+@Transactional
 
 public class UserDAOImpl implements UserDAO {
 

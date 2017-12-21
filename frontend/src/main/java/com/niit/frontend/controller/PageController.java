@@ -1,12 +1,14 @@
 package com.niit.frontend.controller;
 
-import java.util.logging.Logger;
+//import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.hibernate.PropertyNotFoundException;
-import org.hibernate.validator.internal.util.logging.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+//import org.hibernate.validator.internal.util.logging.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,8 +27,8 @@ import com.niit.backend.dto.Product;
 @Controller
 public class PageController {
 	
+//	private static final Logger logger = LoggerFactory.getLogger(PageController.class);
 	private static final Logger logger = LoggerFactory.getLogger(PageController.class);
-	
 	@Autowired
 	private CategoryDAO categoryDAO;
 	
@@ -39,7 +41,7 @@ public class PageController {
 		mv.addObject("title","Home");
 		
 		logger.info("Inside PageController index method - INFO");
-		((Object) logger).debug("Inside PageController index method - DEBUG");
+		logger.debug("Inside PageController index method - DEBUG");
 		
 		//passing the list of categories
 		mv.addObject("categories", categoryDAO.list());
@@ -108,7 +110,7 @@ public class PageController {
 	 * */
 	
 	@RequestMapping(value = "/show/{id}/product") 
-	public ModelAndView showSingleProduct(@PathVariable int id) throws PropertyNotFoundException {
+	public ModelAndView showSingleProduct(@PathVariable int id) throws Exception {
 		
 		ModelAndView mv = new ModelAndView("page");
 		
